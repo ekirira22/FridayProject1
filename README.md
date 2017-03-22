@@ -37,4 +37,4 @@ HTML, CSS, JavaScript, Node.js, Npm & Gulp, Bower & Sass, API
 
 
 ## License
-_Copyright (c) 2016 Eric Maranga at MoringaSchool
+_Copyright (c) 2017 Eric Maranga at MoringaSchool
