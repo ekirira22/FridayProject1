@@ -1,25 +1,26 @@
-var repos = require("./../resources/js/getrepos.js").reposModule;
-var display = function(name, userInfo, reposInfo, moreInfo){
-  $("#name").text(name);
-  $("#login").text(userInfo);
-  $("#repoos").append("<h2><a href=" + reposInfo + ">Click here to see " + name + " repositories.</a>" + "</h2>");
-  console.log(userInfo, " ", reposInfo + " YES");
+var repos = require("./../resources/js/getrepos.js").reposModule; //basically fetches the object constructor repos from getrepos.js
+var display = function(name, userInfo, reposInfo, moreInfo) {
+    $("#name").text(name);
+    $("#login").text(userInfo);
+    $("#repoos").append("<h3><a href=" + reposInfo + ">Click here to see " + name + "'s" + " repositories.</a>" + "<h3>");
+    console.log(userInfo, " ", reposInfo + " YES");
 };
 $(document).ready(function() {
-  var searchrepos = new repos();
-  searchrepos.userRepos();
-  $("#githubuser").click(function(){
-    var name = $("input#user").val();//this get the user input
-    $("input#user").val("");
-    console.log(name);
-    searchrepos.userRepos(name,display);
+    var searchrepos = new repos();
+    searchrepos.userRepos();
+    $("#githubuser").click(function(event) {
+        event.preventDefault();
+        var name = $("input#user").val(); //this get the user input
+        $("input#user").val("");
+        console.log(name);
+        searchrepos.userRepos(name, display);
 
-    $('#name').empty();
-    $('#login').empty();
-    $('#repoos').empty();
+        $('#name').empty();
+        $('#login').empty();
+        $('#repoos').empty();
 
     });
-  });
+});
 
 //The below method is also a raw method that can also get user user's data but the backend has not been separated with
 //the front-end
