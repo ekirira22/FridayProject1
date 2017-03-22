@@ -1,4 +1,5 @@
 var gulp = require('gulp');
+var jshint = require('gulp-jshint');
 var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var concat = require('gulp-concat');
@@ -11,8 +12,14 @@ var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var browserSync = require('browser-sync').create();
 
+gulp.task('jshint', function(){
+  return gulp.src(['resources/js/*.js'])
+    .pipe(jshint())
+    .pipe(jshint.reporter('default'));
+});
+
 gulp.task("concatInterface", function(){
-	gulp.src(["/resources/js/*-interface.js"])
+	gulp.src(["./resources/js/*-interface.js"])
 	.pipe(concat("allConcat.js"))
 	.pipe(gulp.dest("./tmp"))
 });
@@ -27,7 +34,7 @@ gulp.task("minifyScripts", ["jsBrowserify"], function(){
 	.pipe(uglify())
 	.pipe(gulp.dest("./build/js"))
 });
-gulp.task("build",["clean"]function(){
+gulp.task("build",["clean"], function(){
 	if(buildProduction){
 		gulp.start("minifyScripts");
 	}
@@ -64,7 +71,6 @@ gulp.task('serve', function() {
     gulp.watch(['bower.json'], ['bowerBuild']);
     gulp.watch(['*.html'], ['htmlBuild']);
     gulp.watch(['resources/styles/*.css', 'resources/styles/*.scss'] ['cssBuild']);
-    gulp.watch(['app/*.ts'], ['tsBuild']);
 });
 gulp.task('jsBuild', ['jsBrowserify'], function() {
     browserSync.reload();
