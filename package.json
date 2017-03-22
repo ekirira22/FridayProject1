@@ -1,0 +1,32 @@
+{
+  "name": "githubuseruplook",
+  "version": "1.0.0",
+  "description": "a website where users may enter a GitHub username into a form, submit it, and see names and descriptions of that person's public repositories.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Kirira Maranga",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekirira22/FridayProject1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ekirira22/FridayProject1/issues"
+  },
+  "homepage": "https://github.com/ekirira22/FridayProject1#readme",
+  "devDependencies": {
+    "bower-files": "^3.14.1",
+    "browser-sync": "^2.18.8",
+    "browserify": "^14.1.0",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
